@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>⛏️ 곱셈구구 광산 모험 ⛏️</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+  <!-- 상단 상태바 -->
+  <header id="topbar">
+    <div class="hud-item" title="모은 코인">💰 <span id="coinCount">0</span></div>
+    <div class="hud-item" title="지금 단계"><span id="stageLabel">0단</span></div>
+    <div class="hud-item" title="가진 무기">🗡️ <span id="weaponLabel">맨손</span></div>
+    <button id="btnReset" class="mini-btn" title="처음부터 다시">🔄 초기화</button>
+  </header>
+
+  <main id="screens">
+
+    <!-- 홈 화면 -->
+    <section id="home" class="screen active">
+      <h1 class="title">⛏️ 곱셈구구 광산 모험 ⛏️</h1>
+      <p class="subtitle">문제를 풀어 코인을 모으고, 재료로 무기를 만들어 보스몹을 물리치자!</p>
+      <div class="menu">
+        <button class="big-btn" data-go="map">▶ 모험 시작 / 이어하기</button>
+        <button class="big-btn" data-go="shop">🏪 재료 상점</button>
+        <button class="big-btn" data-go="craft">🔨 제작대</button>
+        <button class="big-btn" data-go="bag">🎒 가방 보기</button>
+      </div>
+      <p class="hint">0단부터 차근차근! 마지막 단계는 모든 단이 랜덤으로 나와요.</p>
+    </section>
+
+    <!-- 지도 -->
+    <section id="map" class="screen">
+      <h2 class="screen-title">🗺️ 모험 지도</h2>
+      <div id="stageList" class="stage-list"></div>
+      <button class="back-btn" data-go="home">← 돌아가기</button>
+    </section>
+
+    <!-- 퀴즈+보스전 (game.js가 내용 채움) -->
+    <section id="quiz" class="screen"></section>
+
+    <!-- 상점 -->
+    <section id="shop" class="screen">
+      <h2 class="screen-title">🏪 재료 상점</h2>
+      <p class="shop-coin">가진 코인: 💰 <span id="shopCoin">0</span></p>
+      <div id="shopList" class="shop-list"></div>
+      <button class="back-btn" data-go="home">← 돌아가기</button>
+    </section>
+
+    <!-- 제작대 -->
+    <section id="craft" class="screen">
+      <h2 class="screen-title">🔨 제작대</h2>
+      <p class="subtitle small">재료를 모아 더 강한 무기를 만들자! (무기가 강할수록 보스에게 큰 피해!)</p>
+      <div id="craftList" class="craft-list"></div>
+      <button class="back-btn" data-go="home">← 돌아가기</button>
+    </section>
+
+    <!-- 가방 -->
+    <section id="bag" class="screen">
+      <h2 class="screen-title">🎒 가방</h2>
+      <div id="bagList" class="bag-list"></div>
+      <button class="back-btn" data-go="home">← 돌아가기</button>
+    </section>
+
+  </main>
+</div>
+
+<!-- 토스트/모달 -->
+<div id="toast" class="toast"></div>
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <div id="modalIcon" class="modal-icon">🎉</div>
+    <div id="modalText" class="modal-text"></div>
+    <button id="modalBtn" class="big-btn green">좋아!</button>
+  </div>
+</div>
+
+<script src="sprites.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
